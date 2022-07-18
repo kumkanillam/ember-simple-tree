@@ -4,17 +4,20 @@ import { get, set } from '@ember/object';
 
 export default class TreeComponent extends Component {
   get collapsedIcon() {
+	  console.log("inside x-tree(this.args)--collapsed-icon", this.args);
     return this.args.collapsedIcon ?? 'x-tree-collapsed-icon';
 
   }
 
   get expandedIcon() {
+	  console.log("inside x-tree(this.args)--expanded-icon", this.args);
     return this.args.expandedIcon ?? 'x-tree-expanded-icon';
   }
+  
+  
 
   constructor() {
     super(...arguments);
-
     // Make sure chosen item is highlighted and expanded-to in the tree
     if (this.args.chosenId) {
       let chosen = getDescendents(this.args.model).findBy('id', this.args.chosenId);
