@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { get, set } from '@ember/object';
 
 export default class XTreeBranchComponent extends Component {
   get loadMoreText() {
