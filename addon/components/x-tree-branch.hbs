@@ -41,6 +41,6 @@
     {{/if}}
   {{/each}}
 {{#if (eq @model.lastObject.hasNextPage true)}}
-	<span class="load-more" {{on "click" (fn this.loadingNext @model.lastObject.parentObject)}} >+{{@model.lastObject.parentObject.loadingTriggerCount}} more </span>
+	<span class="x-tree-load-more" {{on "click" (fn this.onLoad @model.lastObject.parentObject)}} >+{{@model.lastObject.parentObject.loadingTriggerCount}} {{@model.lastObject.parentObject.loadMoreText}} </span>
  {{/if}}
 </ul>
