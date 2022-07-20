@@ -11,10 +11,11 @@ export default class TreeComponent extends Component {
   get expandedIcon() {
     return this.args.expandedIcon ?? 'x-tree-expanded-icon';
   }
+  
+  
 
   constructor() {
     super(...arguments);
-
     // Make sure chosen item is highlighted and expanded-to in the tree
     if (this.args.chosenId) {
       let chosen = getDescendents(this.args.model).findBy('id', this.args.chosenId);

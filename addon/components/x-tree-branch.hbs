@@ -10,6 +10,7 @@
           @onCheck={{@onCheck}}
           @onContextMenu={{@onContextMenu}}
           @onSelect={{@onSelect}}
+		      @onLoad={{@onLoad}}
           @onHover={{@onHover}}
           @onHoverOut={{@onHoverOut}}
           @model={{child}}
@@ -17,7 +18,8 @@
           @collapsedIcon={{@collapsedIcon}}
           as |node|
         >
-          {{yield node}}
+          {{yield node}} 
+		  
         </XTreeChildren>
       {{else}}
         <XTreeChildren
@@ -29,6 +31,7 @@
           @onCheck={{@onCheck}}
           @onContextMenu={{@onContextMenu}}
           @onSelect={{@onSelect}}
+		      @onLoad={{@onLoad}}
           @onHover={{@onHover}}
           @onHoverOut={{@onHoverOut}}
           @expandedIcon={{@expandedIcon}}
@@ -37,4 +40,7 @@
       {{/if}}
     {{/if}}
   {{/each}}
+{{#if @model.lastObject.hasNextPage }}
+	<span class="x-tree-load-more" {{on "click" (fn this.args.onLoad @model.lastObject.parentObject)}} >+{{@model.lastObject.parentObject.loadingTriggerCount}} {{@model.lastObject.parentObject.loadMoreLabel}} </span>
+ {{/if}}
 </ul>
