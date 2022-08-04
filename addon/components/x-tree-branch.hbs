@@ -41,7 +41,7 @@
     {{/if}}
   {{/each}}
   {{#if @model.lastObject.hasNextPage}}
-    <span class="x-tree-load-more" {{on "click" (fn this.args.onLoad @model.lastObject.parentObject)}} >
+    <span class="x-tree-load-more" {{on "click" (fn @onLoad @model.lastObject.parentObject)}} >
       +{{@model.lastObject.parentObject.loadingTriggerCount}} {{@model.lastObject.parentObject.loadMoreLabel}}
     </span>
     <span class={{if @model.lastObject.parentObject.isNotificationRunning "tree-view-load-more-loader" "hide-tree-view-loader"}}>
