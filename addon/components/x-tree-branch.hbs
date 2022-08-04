@@ -40,7 +40,12 @@
       {{/if}}
     {{/if}}
   {{/each}}
-{{#if @model.lastObject.hasNextPage }}
-	<span class="x-tree-load-more" {{on "click" (fn this.args.onLoad @model.lastObject.parentObject)}} >+{{@model.lastObject.parentObject.loadingTriggerCount}} {{@model.lastObject.parentObject.loadMoreLabel}} </span>
- {{/if}}
+  {{#if @model.lastObject.hasNextPage}}
+    <span class="x-tree-load-more" {{on "click" (fn this.args.onLoad @model.lastObject.parentObject)}} >
+      +{{@model.lastObject.parentObject.loadingTriggerCount}} {{@model.lastObject.parentObject.loadMoreLabel}}
+    </span>
+    <span class={{if @model.lastObject.parentObject.isNotificationRunning "tree-view-load-more-loader" "hide-tree-view-loader"}}>
+      <i class="icomoon-spinner2 fa-spin fa tree-view-loader" > </i>
+    </span>
+  {{/if}}
 </ul>
